@@ -10,6 +10,9 @@
   ],
   "scripts": {
     "dev:edge": "bun run apps/edge-worker/dev.ts",
+    "dev:web": "bun --cwd apps/web run dev",
+    "build:web": "bun --cwd apps/web run build",
+    "start:web": "bun --cwd apps/web run start",
     "lint": "ultracite check",
     "format": "ultracite fix",
     "check": "ultracite check",

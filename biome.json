@@ -16,7 +16,5 @@
     "enabled": true,
     "clientKind": "git"
   },
-  "extends": [
-    "ultracite"
-  ]
+  "extends": ["ultracite"]
 }
