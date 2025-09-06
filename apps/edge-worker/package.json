@@ -1,0 +1,12 @@
+{
+  "name": "@screentime/edge-worker",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run dev.ts"
+  },
+  "dependencies": {
+    "hono": "^4.4.0"
+  }
+}

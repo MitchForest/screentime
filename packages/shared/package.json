@@ -1,0 +1,11 @@
+{
+  "name": "@screentime/shared",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "main": "src/index.ts",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "ulid": "^3.0.1"
+  }
+}

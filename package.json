@@ -1,0 +1,24 @@
+{
+  "name": "screentime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "apps/workers/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:edge": "bun run apps/edge-worker/dev.ts",
+    "lint": "ultracite check",
+    "format": "ultracite fix",
+    "check": "ultracite check",
+    "typecheck": "tsc -p tsconfig.base.json --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.2",
+    "shadcn": "^3.2.1",
+    "typescript": "^5.9.2",
+    "ultracite": "5.3.3"
+  }
+}
