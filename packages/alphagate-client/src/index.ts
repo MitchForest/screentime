@@ -4,15 +4,15 @@ export type ClientConfig = {
 };
 
 export class AlphaGateClient {
-  private apiKey: string;
-  private baseURL: string;
+  private readonly apiKey: string;
+  private readonly baseURL: string;
 
   constructor(cfg: ClientConfig) {
     this.apiKey = cfg.apiKey;
     this.baseURL = cfg.baseURL ?? "https://api.alphagate.ai/v1";
   }
 
-  async responsesCreate(payload: unknown): Promise<Response> {
+  responsesCreate(payload: unknown): Promise<Response> {
     return fetch(`${this.baseURL}/responses`, {
       method: "POST",
       headers: {

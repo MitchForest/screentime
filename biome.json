@@ -9,12 +9,21 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "performance": {
+        "noNamespaceImport": "off"
+      }
     }
+  },
+  "javascript": {
+    "globals": ["Bun"]
   },
   "vcs": {
     "enabled": true,
     "clientKind": "git"
   },
-  "extends": ["ultracite"]
+  "extends": ["ultracite"],
+  "files": {
+    "experimentalScannerIgnores": ["apps/web/components/ui/**"]
+  }
 }

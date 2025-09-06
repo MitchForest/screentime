@@ -1,5 +1,8 @@
+/* biome-ignore lint/suspicious/noUnknownAtRules: Tailwind CSS */
 @tailwind base;
+/* biome-ignore lint/suspicious/noUnknownAtRules: Tailwind CSS */
 @tailwind components;
+/* biome-ignore lint/suspicious/noUnknownAtRules: Tailwind CSS */
 @tailwind utilities;
 
 :root {
@@ -49,9 +52,11 @@
 
 @layer base {
   * {
+    /* biome-ignore lint/suspicious/noUnknownAtRules: Tailwind CSS */
     @apply border-border;
   }
   body {
+    /* biome-ignore lint/suspicious/noUnknownAtRules: Tailwind CSS */
     @apply bg-background text-foreground;
   }
 }

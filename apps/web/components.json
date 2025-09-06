@@ -3,18 +3,23 @@
   "style": "new-york",
   "rsc": true,
   "tsx": true,
+  "iconLibrary": "lucide",
   "tailwind": {
     "config": "tailwind.config.ts",
     "css": "app/globals.css",
-    "baseColor": "slate"
+    "baseColor": "slate",
+    "cssVariables": true
   },
   "aliases": {
     "components": "@/components",
-    "utils": "@/lib/utils"
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
   },
-  "registry": {
-    "name": "default",
-    "url": "https://ui.shadcn.com"
-  },
-  "namespace": "sct"
+  "registries": {
+    "@sct": {
+      "url": "https://ui.shadcn.com/r/{name}.json?namespace=sct"
+    }
+  }
 }
