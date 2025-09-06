@@ -6,10 +6,15 @@
   "main": "src/index.ts",
   "exports": "./src/index.ts",
   "scripts": {
-    "build:schema": "bun run ./scripts/build-schema.ts"
+    "build:schema": "bun run ./scripts/build-schema.ts",
+    "test": "bun run ./scripts/test-schema.ts"
   },
   "dependencies": {
     "zod": "3.23.8",
     "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "ajv": "^8.16.0",
+    "ajv-formats": "^3.0.1"
   }
 }
