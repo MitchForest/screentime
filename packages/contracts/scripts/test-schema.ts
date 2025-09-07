@@ -4,7 +4,9 @@ import addFormats from "ajv-formats";
 import { zScreentimePayload } from "../src/schema";
 
 function assert(condition: unknown, message: string): asserts condition {
-  if (!condition) throw new Error(message);
+  if (!condition) {
+    throw new Error(message);
+  }
 }
 
 const schemaPath = "packages/contracts/dist/screentime_activity_v1.json";
@@ -49,8 +51,10 @@ assert(ok, `AJV expected pass: ${ajv.errorsText(validate.errors)}`);
 // Invalid: missing session_id
 const invalidPayload = {
   ...validPayload,
-  session: { ...validPayload.session, // @ts-expect-error
-    session_id: undefined },
+  session: {
+    ...validPayload.session, // @ts-expect-error
+    session_id: undefined,
+  },
 };
 
 let threw = false;

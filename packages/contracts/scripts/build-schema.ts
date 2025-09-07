@@ -7,4 +7,3 @@ const schema = zodToJsonSchema(zScreentimePayload, {
 
 const outPath = "packages/contracts/dist/screentime_activity_v1.json";
 await Bun.write(outPath, JSON.stringify(schema, null, 2));
-

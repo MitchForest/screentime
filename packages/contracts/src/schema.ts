@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+const SCORE_MIN = 0;
+const SCORE_MAX = 100;
+
 export const zULID = z.string().min(1);
 
 export const zDevice = z.enum(["mac", "windows", "chromebook", "unknown"]);
@@ -34,7 +37,7 @@ export const zActivity = z.object({
   started_at: z.string().datetime(),
   ended_at: z.string().datetime().optional(),
   duration_ms: z.number().int().min(0).optional(),
-  score: z.number().min(0).max(100).optional(),
+  score: z.number().min(SCORE_MIN).max(SCORE_MAX).optional(),
   correct: z.boolean().optional(),
   attempts: z.number().int().min(0).optional(),
   idle_ms: z.number().int().min(0).optional(),
@@ -58,4 +61,3 @@ export const zScreentimePayload = z.object({
 });
 
 export type ScreentimePayload = z.infer<typeof zScreentimePayload>;
-

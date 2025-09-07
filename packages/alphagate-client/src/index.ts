@@ -23,5 +23,14 @@ export class AlphaGateClient {
     });
   }
 
+  async responsesCreateJson<T = unknown>(payload: unknown): Promise<T> {
+    const res = await this.responsesCreate(payload);
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Alpha Gate error ${res.status}: ${text}`);
+    }
+    return (await res.json()) as T;
+  }
+
   // Placeholder for streaming; implementation can use fetch + ReadableStream
 }

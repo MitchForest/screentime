@@ -16,6 +16,7 @@
     "dev:worker:correlator": "bun run apps/workers/correlator/src/index.ts",
     "dev:worker:aggregator": "bun run apps/workers/aggregator/src/index.ts",
     "dev:worker:retention": "bun run apps/workers/retention/src/index.ts",
+    "e2e": "bun run scripts/e2e-run.ts",
     "lint": "ultracite check",
     "format": "ultracite fix",
     "check": "ultracite check",

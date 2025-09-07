@@ -7,6 +7,9 @@
     "dev": "bun run dev.ts"
   },
   "dependencies": {
-    "hono": "^4.4.0"
+    "@aws-sdk/client-s3": "^3.644.0",
+    "@aws-sdk/s3-request-presigner": "^3.644.0",
+    "hono": "^4.4.0",
+    "ulid": "^3.0.1"
   }
 }

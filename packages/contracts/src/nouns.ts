@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+const SCORE_MIN = 0;
+const SCORE_MAX = 100;
+
 export const zULID = z.string().min(1);
 
 export const zOrg = z.object({
@@ -63,7 +66,7 @@ export const zObservation = z.object({
   type: z.enum(["lesson", "exercise", "video", "quiz", "search", "other"]).optional(),
   topic: z.string().optional(),
   lesson_title: z.string().optional(),
-  score: z.number().min(0).max(100).optional(),
+  score: z.number().min(SCORE_MIN).max(SCORE_MAX).optional(),
   correct: z.boolean().optional(),
   attempts: z.number().int().min(0).optional(),
   evidence: z
@@ -82,4 +85,3 @@ export type Student = z.infer<typeof zStudent>;
 export type Device = z.infer<typeof zDevice>;
 export type Capture = z.infer<typeof zCapture>;
 export type Observation = z.infer<typeof zObservation>;
-
