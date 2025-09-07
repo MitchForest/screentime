@@ -12,10 +12,12 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "baseUrl": ".",
+    "lib": ["ES2022", "DOM"],
+    "types": ["bun-types", "node"],
     "paths": {
       "@contracts/*": ["packages/contracts/src/*"],
-      "@shared/*": ["packages/shared/src/*"]
-    },
-    "lib": ["ES2022", "DOM"]
+      "@shared/*": ["packages/shared/src/*"],
+      "@/*": ["apps/web/*"]
+    }
   }
 }

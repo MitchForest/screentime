@@ -1,7 +1,8 @@
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { zScreentimePayload } from "../src/schema";
 
-const schema = zodToJsonSchema(zScreentimePayload, {
+// biome-ignore lint/suspicious/noExplicitAny: Casting to bridge zod typing across tooling versions
+const schema = zodToJsonSchema(zScreentimePayload as any, {
   name: "screentime_activity_v1",
 });
 

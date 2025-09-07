@@ -20,9 +20,9 @@ async function main() {
 
   // Capture fullscreen JPG without UI sounds/prompts
   const proc = Bun.spawn(["screencapture", "-x", "-t", "jpg", file]);
-  const { success, exitCode } = await proc.exited;
-  if (!success) {
-    throw new Error(`screencapture failed (code ${exitCode})`);
+  const code = await proc.exited;
+  if (code !== 0) {
+    throw new Error(`screencapture failed (code ${code})`);
   }
 
   const buf = readFileSync(file);

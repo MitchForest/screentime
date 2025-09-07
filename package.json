@@ -24,6 +24,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.2",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "bun-types": "^1.1.8",
     "shadcn": "^3.2.1",
     "typescript": "^5.9.2",
     "ultracite": "5.3.3"

@@ -1,0 +1,17 @@
+{
+  "name": "@screentime/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "ping": "bun run ./scripts/ping.ts"
+  },
+  "dependencies": {
+    "kysely": "^0.27.3",
+    "kysely-postgres-js": "^2.0.0",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {}
+}

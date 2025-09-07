@@ -52,8 +52,9 @@ assert(ok, `AJV expected pass: ${ajv.errorsText(validate.errors)}`);
 const invalidPayload = {
   ...validPayload,
   session: {
-    ...validPayload.session, // @ts-expect-error
-    session_id: undefined,
+    ...validPayload.session,
+    // intentionally break schema
+    session_id: undefined as unknown as string,
   },
 };
 
