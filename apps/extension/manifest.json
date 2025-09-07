@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Screentime Uploader",
+  "version": "0.1.0",
+  "description": "Capture the visible tab and upload to Screentime backend (S3 presigned).",
+  "permissions": ["activeTab", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "capture-and-upload": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Capture visible tab and upload"
+    }
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Screentime Uploader"
+  }
+}

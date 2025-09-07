@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Screentime Options</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 16px; }
+      label { display: block; margin: 8px 0 4px; }
+      input { width: 360px; padding: 6px 8px; }
+      button { margin-top: 12px; padding: 8px 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>Screentime Options</h1>
+    <label for="baseUrl">Backend Base URL</label>
+    <input id="baseUrl" type="text" placeholder="http://localhost:8787" />
+    <div>
+      <button id="save">Save</button>
+      <span id="status" style="margin-left: 8px;"></span>
+    </div>
+    <script>
+      const baseUrlInput = document.getElementById('baseUrl');
+      const status = document.getElementById('status');
+      document.getElementById('save').addEventListener('click', () => {
+        chrome.storage.sync.set({ baseUrl: baseUrlInput.value.trim() }, () => {
+          status.textContent = 'Saved';
+          setTimeout(() => (status.textContent = ''), 1200);
+        });
+      });
+      chrome.storage.sync.get(['baseUrl'], (res) => {
+        baseUrlInput.value = res.baseUrl || 'http://localhost:8787';
+      });
+    </script>
+  </body>
+  </html>
+
