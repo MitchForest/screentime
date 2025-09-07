@@ -14,6 +14,8 @@
     <h1>Screentime Options</h1>
     <label for="baseUrl">Backend Base URL</label>
     <input id="baseUrl" type="text" placeholder="http://localhost:8787" />
+    <label for="apiKey">Edge API Key (optional)</label>
+    <input id="apiKey" type="text" placeholder="dev_key_123" />
     <div>
       <button id="save">Save</button>
       <span id="status" style="margin-left: 8px;"></span>
@@ -22,15 +24,16 @@
       const baseUrlInput = document.getElementById('baseUrl');
       const status = document.getElementById('status');
       document.getElementById('save').addEventListener('click', () => {
-        chrome.storage.sync.set({ baseUrl: baseUrlInput.value.trim() }, () => {
+        chrome.storage.sync.set({ baseUrl: baseUrlInput.value.trim(), apiKey: apiKey.value.trim() }, () => {
           status.textContent = 'Saved';
           setTimeout(() => (status.textContent = ''), 1200);
         });
       });
-      chrome.storage.sync.get(['baseUrl'], (res) => {
+      const apiKey = document.getElementById('apiKey');
+      chrome.storage.sync.get(['baseUrl', 'apiKey'], (res) => {
         baseUrlInput.value = res.baseUrl || 'http://localhost:8787';
+        apiKey.value = res.apiKey || '';
       });
     </script>
   </body>
   </html>
-

@@ -18,6 +18,7 @@ dist
 build
 .wrangler
 .cache
+**/.next
 
 # Node/Bun
 node_modules

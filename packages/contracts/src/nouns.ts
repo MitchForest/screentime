@@ -1,9 +1,5 @@
 import { z } from "zod";
-
-const SCORE_MIN = 0;
-const SCORE_MAX = 100;
-
-export const zULID = z.string().min(1);
+import { SCORE_MAX, SCORE_MIN, zDevice as zDeviceEnum, zULID } from "./primitives";
 
 export const zOrg = z.object({
   org_id: zULID,
@@ -31,7 +27,7 @@ export const zStudent = z.object({
   initials: z.string().optional(),
 });
 
-export const zDeviceKind = z.enum(["mac", "windows", "chromebook", "unknown"]);
+export const zDeviceKind = zDeviceEnum;
 
 export const zDevice = z.object({
   device_id: zULID,

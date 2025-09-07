@@ -24,7 +24,10 @@ async function main() {
   const contentType = inferContentType(abs);
   const signRes = await fetch(`http://localhost:${process.env.PORT || "8787"}/api/uploads/sign`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(process.env.EDGE_API_KEY ? { Authorization: `Bearer ${process.env.EDGE_API_KEY}` } : {}),
+    },
     body: JSON.stringify({ contentType }),
   });
   if (!signRes.ok) {
@@ -96,6 +99,23 @@ async function main() {
   }
 
   console.log("E2E OK — validated Screentime payload:", JSON.stringify(output, null, 2));
+
+  if (process.env.PERSIST === "1") {
+    const persistRes = await fetch(`http://localhost:${process.env.PORT || "8787"}/v1/persist`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.EDGE_API_KEY ? { Authorization: `Bearer ${process.env.EDGE_API_KEY}` } : {}),
+      },
+      body: JSON.stringify(output),
+    });
+    if (!persistRes.ok) {
+      const txt = await persistRes.text();
+      throw new Error(`persist failed ${persistRes.status}: ${txt}`);
+    }
+    const j = await persistRes.json();
+    console.log("Persisted summary:", j.summary_id);
+  }
 }
 
 function inferContentType(p: string): string {

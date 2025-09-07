@@ -1,11 +1,5 @@
 import { z } from "zod";
-
-const SCORE_MIN = 0;
-const SCORE_MAX = 100;
-
-export const zULID = z.string().min(1);
-
-export const zDevice = z.enum(["mac", "windows", "chromebook", "unknown"]);
+import { SCORE_MAX, SCORE_MIN, zDevice, zULID } from "./primitives";
 
 export const zSession = z.object({
   session_id: zULID,
